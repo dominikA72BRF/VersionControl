@@ -10,6 +10,8 @@ namespace ExcelExport
     public partial class Form1 : Form
     {
 
+        private int _million = (int)Math.Pow(10, 6);
+
         RealEstateEntities1 context = new RealEstateEntities1();
         List<Flat> lakasok;
         Excel.Application xlApp;
@@ -74,18 +76,22 @@ namespace ExcelExport
                 object[,] values = new object[lakasok.Count, headers.Length];
 
                 int counter = 0;
-
+            int floorColumn = 6;
                 foreach (var lakas in lakasok)
                 {
                     values[counter, 0] = lakas.Code;
                 values[counter, 1] = lakas.Vendor;
                 values[counter, 2] = lakas.Side;
                 values[counter, 3] = lakas.District;
-                values[counter, 4] = lakas.Elevator;
+                values[counter, 4] = lakas.Elevator ? "Van" : "Nincs";
                 values[counter, 5] = lakas.NumberOfRooms;
-                values[counter, 6] = lakas.FloorArea;
+                values[counter, floorColumn] = lakas.FloorArea;
                 values[counter, 7] = lakas.Price;
-                values[counter, 8] = "";
+                values[counter, 8] = string.Format("={0}/{1}*{2}",
+                    "H" + (counter + 2).ToString(),
+                    GetCell(counter + 2, floorColumn + 1),
+                    _million.ToString()
+                    );
 
                 counter++;
                 }
