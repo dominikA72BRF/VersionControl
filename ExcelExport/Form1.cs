@@ -4,11 +4,13 @@ using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using System;
+using System.Drawing;
 
 namespace ExcelExport
 {
     public partial class Form1 : Form
     {
+        string[] headers;
 
         private int _million = (int)Math.Pow(10, 6);
 
@@ -40,6 +42,7 @@ namespace ExcelExport
                 xlSheet = xlWB.ActiveSheet;
 
                 CreateTable();
+                FormatTable();
 
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
@@ -58,7 +61,7 @@ namespace ExcelExport
 
         private void CreateTable()
         {
-            string[] headers = new string[] {
+            headers = new string[] {
                 "Kód",
                 "Eladó",
                 "Oldal",
@@ -121,7 +124,17 @@ namespace ExcelExport
                 return ExcelCoordinate;
             }
 
-        
+        private void FormatTable()
+        {
+            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+            headerRange.Font.Bold = true;
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.EntireColumn.AutoFit();
+            headerRange.RowHeight = 40;
+            headerRange.Interior.Color = Color.LightBlue;
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+        }
 
     }
 }
