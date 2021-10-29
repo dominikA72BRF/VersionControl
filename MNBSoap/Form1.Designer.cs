@@ -29,9 +29,9 @@ namespace MNBSoap
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.chartRateData = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tolPicker = new System.Windows.Forms.DateTimePicker();
@@ -51,16 +51,16 @@ namespace MNBSoap
             // 
             // chartRateData
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartRateData.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartRateData.Legends.Add(legend3);
+            chartArea5.Name = "ChartArea1";
+            this.chartRateData.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chartRateData.Legends.Add(legend5);
             this.chartRateData.Location = new System.Drawing.Point(260, 59);
             this.chartRateData.Name = "chartRateData";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartRateData.Series.Add(series3);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartRateData.Series.Add(series5);
             this.chartRateData.Size = new System.Drawing.Size(340, 249);
             this.chartRateData.TabIndex = 1;
             this.chartRateData.Text = "chart1";
@@ -71,6 +71,7 @@ namespace MNBSoap
             this.tolPicker.Name = "tolPicker";
             this.tolPicker.Size = new System.Drawing.Size(200, 20);
             this.tolPicker.TabIndex = 2;
+            this.tolPicker.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             // 
             // igPicker
             // 
@@ -78,6 +79,7 @@ namespace MNBSoap
             this.igPicker.Name = "igPicker";
             this.igPicker.Size = new System.Drawing.Size(200, 20);
             this.igPicker.TabIndex = 3;
+            this.igPicker.Value = new System.DateTime(2020, 6, 30, 0, 0, 0, 0);
             // 
             // comboBox1
             // 
@@ -89,7 +91,7 @@ namespace MNBSoap
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 4;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.Text = "EUR";
             // 
             // Form1
             // 
