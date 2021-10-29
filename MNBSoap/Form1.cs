@@ -23,7 +23,7 @@ namespace MNBSoap
         public Form1()
         {
             InitializeComponent();
-            //comboBox1.DataSource = currencies;
+            comboBox1.DataSource = currencies;
             MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
             GetCurrenciesRequestBody request = new GetCurrenciesRequestBody();           
             var response = mnbService.GetCurrencies(request);
