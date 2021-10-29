@@ -106,6 +106,9 @@ namespace MNBSoap
             return result;
         }
 
-       
+        private void filterChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
     }
 }
