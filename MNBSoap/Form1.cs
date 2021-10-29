@@ -15,6 +15,21 @@ namespace MNBSoap
         public Form1()
         {
             InitializeComponent();
+            Consume();
         }
+
+
+        void Consume()
+        {
+            MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
+            GetExchangeRatesBody request = new GetExchangeRatesBody();
+            request.currencyNames = "EUR";
+            request.startDate = "2020-01-01";
+            request.endDate = "2020-06-30";
+            mnbService.GetExchangeRates(request);
+        }
+
+
+
     }
 }
