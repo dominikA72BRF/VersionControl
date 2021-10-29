@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MNBSoap.Entities;
+using MNBSoap.MNBServiceReference;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,9 @@ namespace MNBSoap
 {
     public partial class Form1 : Form
     {
+
+        BindingList<RateData> Rates = new BindingList<RateData>();
+
         public Form1()
         {
             InitializeComponent();
@@ -22,11 +27,13 @@ namespace MNBSoap
         void Consume()
         {
             MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
-            GetExchangeRatesBody request = new GetExchangeRatesBody();
+            GetExchangeRatesRequestBody request = new GetExchangeRatesRequestBody();
             request.currencyNames = "EUR";
             request.startDate = "2020-01-01";
             request.endDate = "2020-06-30";
-            mnbService.GetExchangeRates(request);
+            var response = mnbService.GetExchangeRates(request);
+            string result = response.GetExchangeRatesResult;
+            FileDialog.WriteAllText("export.xml", result);
         }
 
 
