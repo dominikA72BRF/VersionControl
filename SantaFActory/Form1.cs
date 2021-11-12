@@ -17,12 +17,17 @@ namespace SantaFActory
 
         List<Toy> _toys = new List<Toy>();
 
+        Toy _nextToy;
+
         private IToyFactory _toyFactory;
 
         public IToyFactory ToyFactory
         {
             get { return _toyFactory; }
-            set { _toyFactory = value; }
+            set { 
+                    _toyFactory = value;
+                    DisplayNext();
+                }
         }
 
 
@@ -70,5 +75,16 @@ namespace SantaFActory
         {
             ToyFactory = new BallFactory();
         }
+
+        private void DisplayNext()
+        {
+            if (_nextToy != null)
+                Controls.Remove(_nextToy);
+            _nextToy = ToyFactory.CreateNew();
+            _nextToy.Top = lblNext.Top + lblNext.Height + 20;
+            _nextToy.Left = lblNext.Left;
+            Controls.Add(_nextToy);
+        }
+
     }
 }

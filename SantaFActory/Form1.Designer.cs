@@ -35,6 +35,7 @@ namespace SantaFActory
             this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
             this.btnCar = new System.Windows.Forms.Button();
             this.btnBall = new System.Windows.Forms.Button();
+            this.lblNext = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -76,17 +77,28 @@ namespace SantaFActory
             this.btnBall.UseVisualStyleBackColor = true;
             this.btnBall.Click += new System.EventHandler(this.btnBall_Click);
             // 
+            // lblNext
+            // 
+            this.lblNext.AutoSize = true;
+            this.lblNext.Location = new System.Drawing.Point(212, 23);
+            this.lblNext.Name = "lblNext";
+            this.lblNext.Size = new System.Drawing.Size(62, 13);
+            this.lblNext.TabIndex = 3;
+            this.lblNext.Text = "Comig next:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 305);
+            this.Controls.Add(this.lblNext);
             this.Controls.Add(this.btnBall);
             this.Controls.Add(this.btnCar);
             this.Controls.Add(this.mainPanel);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -97,6 +109,7 @@ namespace SantaFActory
         private System.Windows.Forms.Timer conveyorTimer;
         private System.Windows.Forms.Button btnCar;
         private System.Windows.Forms.Button btnBall;
+        private System.Windows.Forms.Label lblNext;
     }
 }
 
