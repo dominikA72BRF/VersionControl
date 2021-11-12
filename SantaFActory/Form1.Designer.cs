@@ -37,9 +37,9 @@ namespace SantaFActory
             // 
             // mainPanel
             // 
-            this.mainPanel.Location = new System.Drawing.Point(13, 92);
+            this.mainPanel.Location = new System.Drawing.Point(0, 92);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(508, 201);
+            this.mainPanel.Size = new System.Drawing.Size(532, 214);
             this.mainPanel.TabIndex = 0;
             // 
             // createTimer

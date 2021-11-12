@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SantaFActory.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -8,23 +9,10 @@ using System.Windows.Forms;
 
 namespace SantaFActory.Entities
 {
-    public class Ball: Label
+    public class Ball: Toy
     {
 
-        public Ball()
-        {
-            AutoSize = false;
-            Width = 50;
-            Height = Width;
-            Paint += Ball_Paint;
-        }
-
-        private void Ball_Paint(object sender, PaintEventArgs e)
-        {
-            DrawImage(e.Graphics);
-        }
-
-        private void  DrawImage(Graphics g)
+        protected override void  DrawImage(Graphics g)
         {
             //Brush ecset = new SolidBrush(Color.Blue);
             //g.FillEllipse(ecset, 0, 0, Width, Height);
@@ -32,10 +20,6 @@ namespace SantaFActory.Entities
             g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
         }
 
-        public void MoveBall()
-        {
-            Left += 1;
-        }
 
     }
 }
