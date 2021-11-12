@@ -33,5 +33,15 @@ namespace SantaFActory
             
 
         }
+
+        private void createTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void conveyorTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
