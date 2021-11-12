@@ -60,5 +60,15 @@ namespace SantaFActory
                 _toys.Remove(oldestBall);
             }
         }
+
+        private void btnCar_Click(object sender, EventArgs e)
+        {
+            ToyFactory = new CarFactory();
+        }
+
+        private void btnBall_Click(object sender, EventArgs e)
+        {
+            ToyFactory = new BallFactory();
+        }
     }
 }
