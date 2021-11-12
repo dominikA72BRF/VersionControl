@@ -37,6 +37,9 @@ namespace SantaFActory
             this.btnBall = new System.Windows.Forms.Button();
             this.lblNext = new System.Windows.Forms.Label();
             this.btnColor = new System.Windows.Forms.Button();
+            this.btnPresent = new System.Windows.Forms.Button();
+            this.btnColorBox = new System.Windows.Forms.Button();
+            this.btnColorRibbon = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -89,18 +92,52 @@ namespace SantaFActory
             // 
             // btnColor
             // 
+            this.btnColor.BackColor = System.Drawing.Color.Blue;
             this.btnColor.Location = new System.Drawing.Point(417, 23);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(75, 23);
             this.btnColor.TabIndex = 4;
-            this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.UseVisualStyleBackColor = false;
             this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
+            // btnPresent
+            // 
+            this.btnPresent.Location = new System.Drawing.Point(111, 64);
+            this.btnPresent.Name = "btnPresent";
+            this.btnPresent.Size = new System.Drawing.Size(75, 23);
+            this.btnPresent.TabIndex = 5;
+            this.btnPresent.Text = "present";
+            this.btnPresent.UseVisualStyleBackColor = true;
+            this.btnPresent.Click += new System.EventHandler(this.btnPresent_Click);
+            // 
+            // btnColorBox
+            // 
+            this.btnColorBox.BackColor = System.Drawing.Color.Yellow;
+            this.btnColorBox.Location = new System.Drawing.Point(417, 64);
+            this.btnColorBox.Name = "btnColorBox";
+            this.btnColorBox.Size = new System.Drawing.Size(75, 23);
+            this.btnColorBox.TabIndex = 6;
+            this.btnColorBox.UseVisualStyleBackColor = false;
+            this.btnColorBox.Click += new System.EventHandler(this.btnPresent_Click);
+            // 
+            // btnColorRibbon
+            // 
+            this.btnColorRibbon.BackColor = System.Drawing.Color.Red;
+            this.btnColorRibbon.Location = new System.Drawing.Point(417, 97);
+            this.btnColorRibbon.Name = "btnColorRibbon";
+            this.btnColorRibbon.Size = new System.Drawing.Size(75, 23);
+            this.btnColorRibbon.TabIndex = 7;
+            this.btnColorRibbon.UseVisualStyleBackColor = false;
+            this.btnColorRibbon.Click += new System.EventHandler(this.btnPresent_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 305);
+            this.Controls.Add(this.btnColorRibbon);
+            this.Controls.Add(this.btnColorBox);
+            this.Controls.Add(this.btnPresent);
             this.Controls.Add(this.btnColor);
             this.Controls.Add(this.lblNext);
             this.Controls.Add(this.btnBall);
@@ -122,6 +159,9 @@ namespace SantaFActory
         private System.Windows.Forms.Button btnBall;
         private System.Windows.Forms.Label lblNext;
         private System.Windows.Forms.Button btnColor;
+        private System.Windows.Forms.Button btnPresent;
+        private System.Windows.Forms.Button btnColorBox;
+        private System.Windows.Forms.Button btnColorRibbon;
     }
 }
 
