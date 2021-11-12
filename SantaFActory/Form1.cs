@@ -42,10 +42,10 @@ namespace SantaFActory
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-            Ball ball = (Ball)ToyFactory.CreateNew();
-            _toys.Add(ball);
-            ball.Left = -ball.Width;
-            mainPanel.Controls.Add(ball);
+            var toy = ToyFactory.CreateNew();
+            _toys.Add(toy);
+            toy.Left = -toy.Width;
+            mainPanel.Controls.Add(toy);
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
@@ -60,9 +60,9 @@ namespace SantaFActory
 
             if (maxPosition > 1000)
             {
-                var oldestBall = _toys[0];
-                mainPanel.Controls.Remove(oldestBall);
-                _toys.Remove(oldestBall);
+                var oldestToy = _toys[0];
+                mainPanel.Controls.Remove(oldestToy);
+                _toys.Remove(oldestToy);
             }
         }
 
