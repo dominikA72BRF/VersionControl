@@ -36,13 +36,14 @@ namespace SantaFActory
             this.btnCar = new System.Windows.Forms.Button();
             this.btnBall = new System.Windows.Forms.Button();
             this.lblNext = new System.Windows.Forms.Label();
+            this.btnColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
             // 
-            this.mainPanel.Location = new System.Drawing.Point(0, 92);
+            this.mainPanel.Location = new System.Drawing.Point(0, 126);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(532, 214);
+            this.mainPanel.Size = new System.Drawing.Size(532, 180);
             this.mainPanel.TabIndex = 0;
             // 
             // createTimer
@@ -86,11 +87,21 @@ namespace SantaFActory
             this.lblNext.TabIndex = 3;
             this.lblNext.Text = "Comig next:";
             // 
+            // btnColor
+            // 
+            this.btnColor.Location = new System.Drawing.Point(417, 23);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(75, 23);
+            this.btnColor.TabIndex = 4;
+            this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 305);
+            this.Controls.Add(this.btnColor);
             this.Controls.Add(this.lblNext);
             this.Controls.Add(this.btnBall);
             this.Controls.Add(this.btnCar);
@@ -110,6 +121,7 @@ namespace SantaFActory
         private System.Windows.Forms.Button btnCar;
         private System.Windows.Forms.Button btnBall;
         private System.Windows.Forms.Label lblNext;
+        private System.Windows.Forms.Button btnColor;
     }
 }
 
