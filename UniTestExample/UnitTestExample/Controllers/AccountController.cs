@@ -52,6 +52,9 @@ namespace UnitTestExample.Controllers
         {
             if (!Regex.IsMatch(password, @"^[a-zA-Z0-9]{8,}$"))
                 return false;
+            else if (!Regex.IsMatch(password, @"[a-z]."))
+                return false;
+
             return true;
         }
     }
