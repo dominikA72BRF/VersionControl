@@ -30,7 +30,7 @@ namespace Var
             List<decimal> Nyereségek = new List<decimal>();
             int intervalum = 30;
             DateTime kezdőDátum = (from x in Ticks select x.TradingDay).Min();
-            DateTime záróDátum = new DateTime(2016, 12, 30);
+            DateTime záróDátum = new DateTime(2016, 12, 30); 
             TimeSpan z = záróDátum - kezdőDátum;
             for (int i = 0; i < z.Days - intervalum; i++)
             {
@@ -47,7 +47,7 @@ namespace Var
             MessageBox.Show(nyereségekRendezve[nyereségekRendezve.Count() / 5].ToString());
 
 
-
+             
         }
 
         private void CreatePortfolio()
@@ -84,7 +84,7 @@ namespace Var
                return;
 
             using (var sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
-            {
+            { 
                 for (int i = 0; i < nyereségekRendezve.Count; i++)
                 {
                     sw.WriteLine(string.Format(
