@@ -14,13 +14,13 @@ namespace Mikroszimulacio.Entities
     }
 
     // Példa enumerációs változók használatára
-    Gender ádámNeme = Gender.Male;
-    Gender évaNeme = (Gender)2;
+    //Gender ádámNeme = Gender.Male;
+    //Gender évaNeme = (Gender)2;
 
-    if (ádámNeme == Gender.Male)
-    {
-     ...
-    }
+    //if (ádámNeme == Gender.Male)
+    //{
+    // ...
+    //}
 
 }
 
