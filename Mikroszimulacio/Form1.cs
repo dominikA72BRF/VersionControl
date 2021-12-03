@@ -18,16 +18,16 @@ namespace Mikroszimulacio
         Random rng = new Random(1234);
 
         List<Person> Population = null;                     //new List<Person>();
-        List<BirthProbability> BirthProbability = null;    //new List<BirthProbability>();
-        List<DeathProbability> DeathProbability = null;    //new List<DeathProbability>();
+        List<BirthProbability> BirthProbabilities = null;    //new List<BirthProbability>();
+        List<DeathProbability> DeathProbabilities = null;    //new List<DeathProbability>();
 
         public Form1()
         {
             InitializeComponent();
 
             Population = GetPopulation(@"C:\Temp\nép-teszt.csv");
-            BirthProbability = GetBirthProbabilities(@"C:\Temp\születés.csv");
-            DeathProbability = GetDeathProbabilities(@"C:\Temp\halál.csv");
+            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
+            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
 
             // Végigmegyünk a vizsgált éveken
             for (int year = 2005; year <= 2024; year++)
@@ -36,6 +36,7 @@ namespace Mikroszimulacio
                 for (int i = 0; i < Population.Count; i++)
                 {
                     // Ide jön a szimulációs lépés
+                    SimStep(year, Population[1]);
                 }
 
                 int nbrOfMales = (from x in Population
@@ -47,6 +48,42 @@ namespace Mikroszimulacio
                 Console.WriteLine(string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
             }
 
+        }
+
+        private void SimStep(int year, Person person)
+        {
+            //Ha halott akkor kihagyjuk, ugrunk a ciklus következő lépésére
+            if (!person.IsAlive) return;
+
+            // Letároljuk az életkort, hogy ne kelljen mindenhol újraszámolni
+            byte age = (byte)(year - person.BirthYear);
+
+            // Halál kezelése
+            // Halálozási valószínűség kikeresése
+            double pDeath = (from x in DeathProbabilities
+                             where x.Gender == person.Gender && x.Age == age
+                             select x.P).FirstOrDefault();
+            // Meghal a személy?
+            if (rng.NextDouble() <= pDeath)
+                person.IsAlive = false;
+
+            //Születés kezelése - csak az élő nők szülnek
+            if (person.IsAlive && person.Gender == Gender.Female)
+            {
+                //Szülési valószínűség kikeresése
+                double pBirth = (from x in BirthProbabilities
+                                 where x.Age == age
+                                 select x.P).FirstOrDefault();
+                //Születik gyermek?
+                if (rng.NextDouble() <= pBirth)
+                {
+                    Person újszülött = new Person();
+                    újszülött.BirthYear = year;
+                    újszülött.NbrOfChildren = 0;
+                    újszülött.Gender = (Gender)(rng.Next(1, 3));
+                    Population.Add(újszülött);
+                }
+            }
         }
 
 
