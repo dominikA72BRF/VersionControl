@@ -25,12 +25,19 @@ namespace Mikroszimulacio
         {
             InitializeComponent();
 
-            Population = GetPopulation(@"C:\Temp\nép-teszt.csv");
+
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+            
+
+        }
+
+        private void StartSimulation(int endYear, string csvPath)
+        {
+            Population = GetPopulation(@"C:\Temp\nép-teszt.csv");
 
             // Végigmegyünk a vizsgált éveken
-            for (int year = 2005; year <= 2024; year++)
+            for (int year = 2005; year <= endYear; year++)
             {
                 // Végigmegyünk az összes személyen
                 for (int i = 0; i < Population.Count; i++)
@@ -45,9 +52,8 @@ namespace Mikroszimulacio
                 int nbrOfFemales = (from x in Population
                                     where x.Gender == Gender.Female && x.IsAlive
                                     select x).Count();
-                Console.WriteLine(string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
+                richTextBox1.Text += (string.Format("Szimulációs év:{0}\n\t Fiúk:{1}\n\t Lányok:{2}\n\n", year, nbrOfMales, nbrOfFemales));
             }
-
         }
 
         private void SimStep(int year, Person person)
@@ -166,5 +172,24 @@ namespace Mikroszimulacio
             return deathProbabilities;
         }
 
+        //Start gomb
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            StartSimulation((int)numericUpDown1.Value, textBox1.Text);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+
+            if (ofd.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            textBox1.Text = ofd.FileName;
+        }
     }
 }

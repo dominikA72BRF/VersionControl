@@ -74,6 +74,7 @@ namespace Mikroszimulacio
             this.button1.TabIndex = 2;
             this.button1.Text = "Browse";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -85,6 +86,7 @@ namespace Mikroszimulacio
             this.button2.TabIndex = 3;
             this.button2.Text = "Start";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // richTextBox1
             // 
