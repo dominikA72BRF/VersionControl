@@ -129,7 +129,7 @@ namespace Mikroszimulacio
 
                     birthProbabilities.Add(new BirthProbability()
                     {
-                        Age = int.Parse(line[0]),
+                        Age = byte.Parse(line[0]),
                         P = double.Parse(line[2]),
                         NbrOfChildren = int.Parse(line[1])
                     });
@@ -155,7 +155,7 @@ namespace Mikroszimulacio
                     deathProbabilities.Add(new DeathProbability()
                     {
                         Gender = (Gender)Enum.Parse(typeof(Gender), line[1]),
-                        Age = int.Parse(line[0]),
+                        Age = byte.Parse(line[0]),
                         P = double.Parse(line[2])
 
                     });
