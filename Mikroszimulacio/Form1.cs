@@ -32,10 +32,6 @@ namespace Mikroszimulacio
 
         }
 
-        public List<Person> GetSm(string csvPath)
-        {
-            return null;
-        }
 
         private void StartSimulation(int endYear, string csvPath)
         {
