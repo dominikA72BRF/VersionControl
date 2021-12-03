@@ -35,7 +35,7 @@ namespace Mikroszimulacio
 
         private void StartSimulation(int endYear, string csvPath)
         {
-            Population = GetPopulation(@"C:\Temp\nép-teszt.csv");
+            Population = GetPopulation(csvPath);
 
             // Végigmegyünk a vizsgált éveken
             for (int year = 2005; year <= endYear; year++)
@@ -44,7 +44,7 @@ namespace Mikroszimulacio
                 for (int i = 0; i < Population.Count; i++)
                 {
                     // Ide jön a szimulációs lépés
-                    SimStep(year, Population[1]);
+                    SimStep(year, Population[i]);
                 }
 
                 int nbrOfMales = (from x in Population
