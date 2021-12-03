@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mikroszimulacio.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,10 @@ namespace Mikroszimulacio
 {
     public partial class Form1 : Form
     {
+        List<Person> Population = new List<Person>();
+        List<BirthProbability> BirthProbability = new List<BirthProbability>();
+        List<DeathProbability> DeathProbability = new List<DeathProbability>();
+
         public Form1()
         {
             InitializeComponent();
