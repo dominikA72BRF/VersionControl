@@ -14,20 +14,22 @@ namespace Mikroszimulacio
 {
     public partial class Form1 : Form
     {
+
+        Random rng = new Random();
+
         List<Person> Population = null;                     //new List<Person>();
-        List <BirthProbability> BirthProbability = null;    //new List<BirthProbability>();
-        List <DeathProbability> DeathProbability = null;    //new List<DeathProbability>();
+        List<BirthProbability> BirthProbability = null;    //new List<BirthProbability>();
+        List<DeathProbability> DeathProbability = null;    //new List<DeathProbability>();
 
         public Form1()
         {
             InitializeComponent();
 
             Population = GetPopulation(@"C:\Temp\nép-teszt.csv");
-            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
-            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+            BirthProbability = GetBirthProbabilities(@"C:\Temp\születés.csv");
+            DeathProbability = GetDeathProbabilities(@"C:\Temp\halál.csv");
 
         }
-    }
 
 
         public List<Person> GetPopulation(string csvpath)
@@ -100,7 +102,7 @@ namespace Mikroszimulacio
                         Gender = (Gender)Enum.Parse(typeof(Gender), line[1]),
                         Age = int.Parse(line[0]),
                         P = double.Parse(line[2])
-                       
+
                     });
 
                 }
@@ -109,5 +111,5 @@ namespace Mikroszimulacio
             return deathProbabilities;
         }
 
-    
+    }
 }
