@@ -15,6 +15,7 @@ namespace Evolucio
     {
         GameController gc = new GameController();
         GameArea ga = null;
+        Brain winnerBrain = null;
 
         int populationSize = 100;
         int nbrOfSteps = 10;
